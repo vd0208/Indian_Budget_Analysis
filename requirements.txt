@@ -1,0 +1,9 @@
+streamlit
+pymupdf
+pandas
+matplotlib
+sentence-transformers
+faiss-cpu
+transformers
+torch
+numpy

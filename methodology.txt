@@ -1,0 +1,14 @@
+Methodology
+
+This project employs a Hybrid RAG (Retrieval-Augmented Generation) approach, combining deterministic keyword analysis with semantic LLM generation.
+
+Why Keywords? 
+While LLMs are excellent at conversation, they are "probabilistic", meaning they can sometimes vary in how they summarize numbers.
+- Purpose: We use a custom keyword extraction layer to provide deterministic quantification.
+- Significance: If the graph shows a 50% increase in "Green Energy" mentions, that is a literal fact from the document. This acts as a "source of truth" to validate the AI’s qualitative summaries.
+- Effect on Chatbot: This does not limit the chatbot. The chatbot uses semantic search (FAISS) to understand context even when keywords aren't present. The keywords simply provide a measurable "heatmap" of government priorities.
+
+ The RAG Pipeline
+1. Retrieval: Uses FAISS to find semantically relevant chunks.
+2. Augmentation: Injecting those chunks as context into the prompt.
+3. Generation: Using Ollama (Llama 3) to synthesize a coherent, grounded answer.
